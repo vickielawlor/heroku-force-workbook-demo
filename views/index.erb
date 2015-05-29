@@ -1,9 +1,9 @@
 <table>
 <tr><th>Account</th><th>ID</th></tr>
-<% @client.each do |event| %>
+<% @accounts.each do |account| %>
   <tr>
-     <td><%= event.Name %></td>
-     <td><%= event.Id %></td>
+     <td><%= account.Name %></td>
+     <td><%= account.Id %></td>
   </tr>
 <% end %>
 </table>
