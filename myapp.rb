@@ -36,7 +36,7 @@ class MyApp < Sinatra::Base
 
   get '/' do
     logger.info "Visited home page"
-    @accounts= client.query("SELECT StartDateTime, ShowAs FROM Event")
+    @accounts= client.query("SELECT+OwnerId,ShowAs+FROM+Event+WHERE+OwnerId+Not+In+(SELECT+Id+FROM+User)")
     erb :index
   end
 
