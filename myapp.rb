@@ -36,7 +36,7 @@ class MyApp < Sinatra::Base
 
   get '/' do
     logger.info "Visited home page"
-    @events= client.query("SELECT CreatedById,ShowAs FROM Event")
+    @client= client.query("SELECT CreatedById,ShowAs FROM Event")
     erb :index
   end
 
