@@ -1,9 +1,9 @@
 <table>
-<tr><th>Account</th><th>ID</th></tr>
+<tr><th>Start Time</th><th>Shown As</th></tr>
 <% @accounts.each do |account| %>
   <tr>
      <td><%= account.StartDateTime %></td>
-
+    <td><%= account.ShowAs %></td>
   </tr>
 <% end %>
 </table>

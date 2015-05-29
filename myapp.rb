@@ -36,7 +36,7 @@ class MyApp < Sinatra::Base
 
   get '/' do
     logger.info "Visited home page"
-    @accounts= client.query("SELECT StartDateTime FROM Event")
+    @accounts= client.query("SELECT StartDateTime, ShowAs FROM Event")
     erb :index
   end
 
