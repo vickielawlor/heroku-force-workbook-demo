@@ -2,7 +2,7 @@
 <tr><th>Start Time</th><th>Shown As</th></tr>
 <% @accounts.each do |account| %>
   <tr>
-     <td><%= account.StartDateTime %></td>
+     <td><%= account.OwnerId %></td>
     <td><%= account.ShowAs %></td>
   </tr>
 <% end %>
