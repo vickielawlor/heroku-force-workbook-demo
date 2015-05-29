@@ -24,10 +24,10 @@ class MyApp < Sinatra::Base
 
   helpers do
     def client
-      @client ||= Force.new instance_url:  session['instance_url'], 
+      @client ||= Force.new instance_url: session['instance_url'],
                             oauth_token:   session['token'],
                             refresh_token: session['refresh_token'],
-                            client_id:     ENV['SALESFORCE_KEY'],
+                            client_id:    ENV['SALESFORCE_KEY'],
                             client_secret: ENV['SALESFORCE_SECRET']
     end
 
@@ -36,7 +36,7 @@ class MyApp < Sinatra::Base
 
   get '/' do
     logger.info "Visited home page"
-    @accounts= client.query("select Id, Name from Account")    
+    @accounts= client.query("SELECT CreatedById,ShowAs FROM Event")
     erb :index
   end
 
