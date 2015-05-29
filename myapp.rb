@@ -40,7 +40,7 @@ class MyApp < Sinatra::Base
     erb :index
   end
 
-  client.without_caching do
+  @client.without_caching do
     client.query('select Id from Account')
 
   get '/authenticate' do
