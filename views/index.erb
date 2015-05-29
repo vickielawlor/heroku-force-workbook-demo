@@ -6,4 +6,7 @@
      <td><%= event.Id %></td>
   </tr>
 <% end %>
-</table>  
+</table>
+<%client.without_caching do
+client.query('select Id from Account')
+end%>
