@@ -44,11 +44,6 @@ class MyApp < Sinatra::Base
 
   end
 
-  get '/' do
-    logger.info "Visited home page"
-    @accounts= clients.query("SELECT FirstName,LastName,MobilePhone,Email FROM User WHERE FirstName = 'Ronan'")
-
-  end
 
   date = Time.now
 
@@ -60,6 +55,14 @@ class MyApp < Sinatra::Base
   dyy = dy.to_s.rjust(2,'0')
 
   d = "#{yr}-#{mntt}-#{dyy}"
+
+
+  get '/' do
+    logger.info "Visited home page"
+    @accounts= clients.query("SELECT FirstName,LastName,MobilePhone,Email FROM User WHERE FirstName = 'Ronan'")
+
+  end
+  
   get '/' do
     logger.info "Visited home page"
     @accounts= client.query("SELECT AccountId,StartDateTime FROM Event WHERE EndDateTime = #{d}T07:30:00.000+0000")
