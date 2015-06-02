@@ -32,7 +32,7 @@ class MyApp < Sinatra::Base
     end
 
   end
-  
+
 
   date = Time.now
 
@@ -49,6 +49,7 @@ class MyApp < Sinatra::Base
 
 
     @accounts= client.query("SELECT AccountId,StartDateTime FROM Event WHERE EndDateTime = #{d}T07:30:00.000+0000")
+    @accounts= client.query("SELECT FirstName,LastName,MobilePhone,Email FROM User WHERE FirstName = 'Ronan'")
     erb :index
   end
 
