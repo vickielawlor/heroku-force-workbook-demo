@@ -32,18 +32,7 @@ class MyApp < Sinatra::Base
     end
 
   end
-
-  helpers do
-    def clients
-      @clients ||= Force.new instance_url: session['instance_url'],
-          oauth_token:   session['token'],
-          refresh_token: session['refresh_token'],
-          clients_id:    ENV['SALESFORCE_KEY'],
-          clients_secret: ENV['SALESFORCE_SECRET']
-    end
-
-  end
-
+  
 
   date = Time.now
 
@@ -55,11 +44,9 @@ class MyApp < Sinatra::Base
   dyy = dy.to_s.rjust(2,'0')
 
   d = "#{yr}-#{mntt}-#{dyy}"
-
-
   get '/' do
     logger.info "Visited home page"
-    
+
 
     @accounts= client.query("SELECT AccountId,StartDateTime FROM Event WHERE EndDateTime = #{d}T07:30:00.000+0000")
     erb :index
