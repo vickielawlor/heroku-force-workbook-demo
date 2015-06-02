@@ -41,10 +41,10 @@ class MyApp < Sinatra::Base
   dy = date.day
 
 
-  d = "#{yr}-#{mnt}-#{dy}"
+  d = "#{yr}-0#{mnt}-0#{dy}"
   get '/' do
     logger.info "Visited home page"
-    @accounts= client.query("SELECT AccountId,StartDateTime FROM Event WHERE EndDateTime = 2015-06-02T07:30:00.000+0000")
+    @accounts= client.query("SELECT AccountId,StartDateTime FROM Event WHERE EndDateTime = #{d}T07:30:00.000+0000")
     erb :index
   end
 
