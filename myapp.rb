@@ -50,6 +50,12 @@ class MyApp < Sinatra::Base
     erb :index
   end
 
+  get '/' do
+    logger.info "Visited home page"
+    @accounts= client.query("SELECT AccountId,StartDateTime FROM Event WHERE EndDateTime >= #{d}T07:30:00.000+0000")
+    erb :index
+  end
+
   get '/authenticate' do
     redirect "/auth/salesforce"
   end
