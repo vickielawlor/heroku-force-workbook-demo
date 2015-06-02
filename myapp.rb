@@ -53,7 +53,7 @@ class MyApp < Sinatra::Base
   get '/' do
     logger.info "Visited home page"
     @accounts= client1.query("SELECT FirstName,LastName,MobilePhone,Email FROM User WHERE Id = '00580000003lR5B'")
-    erb :index
+   
   end
 
   get '/authenticate' do
