@@ -44,6 +44,11 @@ class MyApp < Sinatra::Base
 
   end
 
+  get '/' do
+    logger.info "Visited home page"
+    @accounts= clients.query("SELECT FirstName,LastName,MobilePhone,Email FROM User WHERE FirstName = 'Ronan'")
+
+  end
 
   date = Time.now
 
@@ -61,11 +66,7 @@ class MyApp < Sinatra::Base
     erb :index
   end
 
-  get '/' do
-    logger.info "Visited home page"
-    @accounts= clients.query("SELECT FirstName,LastName,MobilePhone,Email FROM User WHERE FirstName = 'Ronan'")
 
-  end
 
   get '/authenticate' do
     redirect "/auth/salesforce"
