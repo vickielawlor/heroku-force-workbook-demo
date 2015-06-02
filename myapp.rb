@@ -34,9 +34,15 @@ class MyApp < Sinatra::Base
   end
 
 
+  date = Time.now
+
+  yr = date.year
+  mnt = date.month
+  dy = date.day
+
   get '/' do
     logger.info "Visited home page"
-    @accounts= client.query("SELECT OwnerId,ShowAs FROM Event WHERE OwnerId In (SELECT Id FROM User)")
+    @accounts= client.query("SELECT AccountId,StartDateTime FROM Event WHERE EndDateTime = 2015-05-19T07:30:00.000+0000")
     erb :index
   end
 
