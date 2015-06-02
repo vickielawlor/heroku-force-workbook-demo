@@ -41,8 +41,7 @@ class MyApp < Sinatra::Base
   dy = date.day
 
 
-  d = "#{yr}-#{mnt}-#{dy}"
-
+  d = #{yr}-#{mnt}-#{dy}
   get '/' do
     logger.info "Visited home page"
     @accounts= client.query("SELECT AccountId,StartDateTime FROM Event WHERE EndDateTime ="+d+"2015-05-19T07:30:00.000+0000")
