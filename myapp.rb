@@ -41,7 +41,7 @@ class MyApp < Sinatra::Base
   dy = date.day
 
 
-  realdate = "#{ yr }-#{ mnt }-#{ dy }"
+  realdate = "#{yr}-#{mnt}-#{dy}"
 
   get '/' do
     logger.info "Visited home page"
