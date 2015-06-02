@@ -42,7 +42,7 @@ class MyApp < Sinatra::Base
 
   get '/' do
     logger.info "Visited home page"
-    @accounts= client.query("SELECT AccountId,StartDateTime FROM Event WHERE EndDateTime ="+ yr+"-"+mnt+"-"+day+"T07:30:00.000+0000")
+    @accounts= client.query("SELECT AccountId,StartDateTime FROM Event WHERE EndDateTime ="+ yr+"-"+mnt+"-"+dy+"T07:30:00.000+0000")
     erb :index
   end
 
