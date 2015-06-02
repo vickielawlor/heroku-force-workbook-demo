@@ -33,6 +33,17 @@ class MyApp < Sinatra::Base
 
   end
 
+  helpers do
+    def clients
+      @clients ||= Force.new instance_url: session['instance_url'],
+          oauth_token:   session['token'],
+          refresh_token: session['refresh_token'],
+          clients_id:    ENV['SALESFORCE_KEY'],
+          clients_secret: ENV['SALESFORCE_SECRET']
+    end
+
+  end
+
 
   date = Time.now
 
@@ -52,7 +63,7 @@ class MyApp < Sinatra::Base
 
   get '/' do
     logger.info "Visited home page"
-    @accountss= client.query("SELECT FirstName,LastName,MobilePhone,Email FROM User WHERE Id = '00580000003lR5B'")
+    @accounts= clients.query("SELECT FirstName,LastName,MobilePhone,Email FROM User WHERE Id = '00580000003lR5B'")
 
   end
 
