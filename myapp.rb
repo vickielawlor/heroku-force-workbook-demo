@@ -63,7 +63,7 @@ class MyApp < Sinatra::Base
 
   get '/' do
     logger.info "Visited home page"
-    @accounts= clients.query("SELECT FirstName,LastName,MobilePhone,Email FROM User WHERE Id = '00580000003lR5B'")
+    @accounts= clients.query("SELECT FirstName,LastName,MobilePhone,Email FROM User WHERE FirstName = 'Ronan'")
 
   end
 
