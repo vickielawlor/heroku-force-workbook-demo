@@ -48,7 +48,10 @@ class MyApp < Sinatra::Base
     logger.info "Visited home page"
 
 
-    @accounts= client.query("SELECT AccountId,StartDateTime FROM Event WHERE EndDateTime = #{d}T07:30:00.000+0000 SELECT FirstName,LastName,MobilePhone,Email FROM User WHERE FirstName = 'Ronan'")
+    @accounts= client.query("SELECT AccountId,StartDateTime FROM Event WHERE EndDateTime = #{d}T07:30:00.000+0000")
+    erb :index
+
+    @accounts = client.query(" SELECT FirstName,LastName,MobilePhone,Email FROM User WHERE FirstName = 'Ronan'")
     erb :index
   end
 
