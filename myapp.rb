@@ -54,22 +54,13 @@ class MyApp < Sinatra::Base
   get '/' do
     logger.info "Visited home page"
 
-    @accounts = client.query("SELECT FirstName,LastName,MobilePhone,Email FROM User WHERE FirstName = 'Ronan'")
+    @accounts1 = client.query("SELECT FirstName,LastName,MobilePhone,Email FROM User WHERE FirstName = 'Ronan'")
     erb :index
   end
 
 
   get '/authenticate' do
     redirect "/auth/salesforce"
-  end
-
-  get '/auth/salesforce/callback' do
-    logger.info "#{env["omniauth.auth"]["extra"]["display_name"]} just authenticated"
-    credentials = env["omniauth.auth"]["credentials"]
-    session['token'] = credentials["token"]
-    session['refresh_token'] = credentials["refresh_token"]
-    session['instance_url'] = credentials["instance_url"]
-    redirect '/'
   end
 
   get '/auth/salesforce/callback' do
