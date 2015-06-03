@@ -12,12 +12,12 @@
 <table border="1" style="width:100%">
   <caption>Manager Information</caption>
   <tr><th>Start Time</th><th>Shown As</th><th>Shown As</th><th>Shown As</th></tr>
-  <% @accounts1.each do |account| %>
+  <% @accounts1.each do |account1| %>
       <tr>
-        <td><%= account.FirstName %></td>
-        <td><%= account.LastName %></td>
-        <td><%= account.MobilePhone %></td>
-        <td><%= account.Email %></td>
+        <td><%= account1.FirstName %></td>
+        <td><%= account1.LastName %></td>
+        <td><%= account1.MobilePhone %></td>
+        <td><%= account1.Email %></td>
       </tr>
   <% end %>
 </table>
