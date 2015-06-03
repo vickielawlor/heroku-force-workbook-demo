@@ -1,22 +1,15 @@
 <table border="1" style="width:100%">
   <caption>Manager Information</caption>
-  <tr><th>Start Time</th><th>Shown As</th><th>Shown As</th><th>Shown As</th></tr>
+  <tr><th>Start Time</th><th>Shown As</th><th>Shown As</th><th>Shown As</th><th>Shown As</th></tr>
   <% @accounts1.each do |account| %>
       <tr>
         <td><%= account.FirstName %></td>
         <td><%= account.LastName %></td>
         <td><%= account.MobilePhone %></td>
         <td><%= account.Email %></td>
+        <td><%= account.AccountId %></td>
+
       </tr>
   <% end %>
 </table>
 
-<table border="1" style="width:100%">
-  <caption>Manager Information</caption>
-  <tr><th>Start Time</th><th>Shown As</th><th>Shown As</th></tr>
-  <% @accounts1.each do |account| %>
-      <tr>
-        <td><%= account.AccountId %></td>
-      </tr>
-  <% end %>
-</table>
