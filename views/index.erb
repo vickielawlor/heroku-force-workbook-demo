@@ -3,10 +3,10 @@
   <tr><th>Start Time</th><th>Shown As</th><th>Shown As</th><th>Shown As</th></tr>
   <% @accounts.each do |account| %>
       <tr>
-        <td><%= account.FirstName %></td>
-        <td><%= account.LastName %></td>
-        <td><%= account.MobilePhone %></td>
-        <td><%= account.Email %></td>
+        <td><%= account.user.FirstName %></td>
+        <td><%= account.user.LastName %></td>
+        <td><%= account.user.MobilePhone %></td>
+        <td><%= account.user.Email %></td>
       </tr>
   <% end %>
 </table>
@@ -16,9 +16,7 @@
   <tr><th>Start Time</th><th>Shown As</th><th>Shown As</th></tr>
   <% @accounts.each do |account| %>
       <tr>
-        <td><%= account.FirstName %></td>
-        <td><%= account.LastName %></td>
-        <td><%= account.Email %></td>
+        <td><%= account.u1.FirstName %></td>
       </tr>
   <% end %>
 </table>
