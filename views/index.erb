@@ -1,12 +1,14 @@
 <table border="1" style="width:100%">
-<caption>EMEA</caption>
-<tr><th>Start Time</th><th>Shown As</th></tr>
-<% @accounts.find_each do |account| %>
-  <tr>
-     <td><%= account.AccountId %></td>
-    <td><%= account.StartDateTime %></td>
-  </tr>
-<% end %>
+  <caption>Manager Information</caption>
+  <tr><th>Start Time</th><th>Shown As</th><th>Shown As</th><th>Shown As</th></tr>
+  <% @accounts.find_each do |account| %>
+      <tr>
+        <td><%= account.FirstName %></td>
+        <td><%= account.LastName %></td>
+        <td><%= account.MobilePhone %></td>
+        <td><%= account.Email %></td>
+      </tr>
+  <% end %>
 </table>
 
 <table border="1" style="width:100%">
