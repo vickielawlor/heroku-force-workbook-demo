@@ -52,6 +52,14 @@ class MyApp < Sinatra::Base
     erb :index
   end
 
+  get '/' do
+    logger.info "Visited home page"
+
+    @accounts2 = client.query("SELECT FirstName,LastName,MobilePhone,Email FROM User WHERE FirstName = 'Ronan'")
+
+    erb :index1
+  end
+
   get '/authenticate' do
     redirect "/auth/salesforce"
   end
