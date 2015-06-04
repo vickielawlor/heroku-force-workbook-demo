@@ -4,7 +4,7 @@ require "omniauth"
 require "omniauth-salesforce"
 
 
-class MyApp < Sinatra::Base
+class MyAppone < Sinatra::Base
 
   configure do
     enable :logging
@@ -17,7 +17,7 @@ class MyApp < Sinatra::Base
     provider :salesforce, ENV['SALESFORCE_KEY'], ENV['SALESFORCE_SECRET']
   end
 
-  before /^(?!\/(auth.*))/ do   
+  before /^(?!\/(auth.*))/ do
     redirect '/authenticate' unless session[:instance_url]
   end
 
@@ -25,10 +25,10 @@ class MyApp < Sinatra::Base
   helpers do
     def client
       @client ||= Force.new instance_url: session['instance_url'],
-                            oauth_token:   session['token'],
-                            refresh_token: session['refresh_token'],
-                            client_id:    ENV['SALESFORCE_KEY'],
-                            client_secret: ENV['SALESFORCE_SECRET']
+          oauth_token:   session['token'],
+          refresh_token: session['refresh_token'],
+          client_id:    ENV['SALESFORCE_KEY'],
+          client_secret: ENV['SALESFORCE_SECRET']
     end
 
   end
@@ -47,10 +47,11 @@ class MyApp < Sinatra::Base
   get '/' do
     logger.info "Visited home page"
 
-    @accounts1 = client.query("SELECT FirstName,LastName,MobilePhone,Email FROM User WHERE FirstName = 'Ronan'")
+    @accounts2 = client.query("SELECT FirstName,LastName,MobilePhone,Email FROM User WHERE FirstName = 'Ronan'")
 
     erb :index
   end
+
 
   get '/authenticate' do
     redirect "/auth/salesforce"
@@ -70,7 +71,7 @@ class MyApp < Sinatra::Base
   end
 
   get '/unauthenticate' do
-    session.clear 
+    session.clear
     'Goodbye - you are now logged out'
   end
 
