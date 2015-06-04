@@ -31,6 +31,14 @@ class MyApp < Sinatra::Base
                             client_secret: ENV['SALESFORCE_SECRET']
     end
 
+    def clientt
+      @client ||= Force.new instance_url: session['instance_url'],
+          oauth_token:   session['token'],
+          refresh_token: session['refresh_token'],
+          client_id:    ENV['SALESFORCE_KEY'],
+          client_secret: ENV['SALESFORCE_SECRET']
+    end
+
   end
 
 
@@ -48,7 +56,7 @@ class MyApp < Sinatra::Base
     logger.info "Visited home page"
 
     @accounts1 = client.query("SELECT FirstName,LastName,MobilePhone,Email FROM User WHERE FirstName = 'Ronan'")
-    @accounts2 = query("SELECT FirstName,LastName,MobilePhone,Email FROM User WHERE FirstName = 'Ronan'")
+    @accounts2 = clientt.query("SELECT FirstName,LastName,MobilePhone,Email FROM User WHERE FirstName = 'Ronan'")
 
     erb :index
   end
