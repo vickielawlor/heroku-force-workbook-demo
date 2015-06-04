@@ -48,6 +48,7 @@ class MyApp < Sinatra::Base
     logger.info "Visited home page"
 
     @accounts1 = client.query("SELECT FirstName,LastName,MobilePhone,Email FROM User WHERE FirstName = 'Ronan'")
+    @accounts2 = query("SELECT FirstName,LastName,MobilePhone,Email FROM User WHERE FirstName = 'Ronan'")
 
     erb :index
   end
