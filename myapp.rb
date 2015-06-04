@@ -57,7 +57,7 @@ class MyApp < Sinatra::Base
 
     @accounts1 = client.query("SELECT FirstName,LastName,MobilePhone,Email FROM User WHERE Id = '00580000003lR2a' OR Id = '00580000003lR5B'
                     OR Id = '00580000003lQuG' OR Id = '005340000082AzV' OR Id = '00580000003muAa' ")
-    @accounts2 = clientt.query("SELECT FirstName, LastName FROM USER WHERE Id IN (SELECT OwnerId FROM Event WHERE StartDateTime  >= #{d}T07:30:00.000+0000 AND EndDateTime <= #{d}T17:30:00.000+0000)")
+    @accounts2 = clientt.query("SELECT FirstName,LastName FROM USER WHERE Id = (SELECT OwnerId FROM Event WHERE StartDateTime  >= #{d}T07:30:00.000+0000 AND EndDateTime <= #{d}T17:30:00.000+0000)")
 
     erb :index
   end
