@@ -49,7 +49,7 @@ class MyAppone < Sinatra::Base
 
     @accounts2 = client.query("SELECT FirstName,LastName,MobilePhone,Email FROM User WHERE FirstName = 'Ronan'")
 
-    erb :index
+    erb :index1
   end
 
 
