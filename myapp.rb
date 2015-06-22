@@ -63,6 +63,12 @@ class MyApp < Sinatra::Base
     erb :index
   end
 
+  get '/' do
+    @accounts1 = clientt.query("select ownerid from event where startdatetime >= 2015-06-26T07:30:00.000Z and enddatetime <= 2015-06-26T16:30:00.000Z and showas = 'busy' ")
+
+    erb :index
+  end
+
 
   get '/authenticate' do
     redirect "/auth/salesforce"
