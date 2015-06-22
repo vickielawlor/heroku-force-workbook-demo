@@ -63,10 +63,6 @@ class MyApp < Sinatra::Base
     erb :index
   end
 
-  a.each_index do |i|
-
-
-  end
 
   get '/authenticate' do
     redirect "/auth/salesforce"
