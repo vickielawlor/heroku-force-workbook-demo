@@ -77,11 +77,12 @@ class MyApp < Sinatra::Base
     erb :index
   end
 
+
   for i in list do
     puts i
   end
+  puts  (@accounts2 = clienttt.query("select Firstname from user where id = #{i} "))
 
-  puts @accounts2 = clienttt.query("select Firstname from user where id = #{i} ")
 
   get '/authenticate' do
     redirect "/auth/salesforce"
