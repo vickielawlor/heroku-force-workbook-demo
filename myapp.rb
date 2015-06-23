@@ -39,6 +39,14 @@ class MyApp < Sinatra::Base
           client_secret: ENV['SALESFORCE_SECRET']
     end
 
+    def clienttt
+      @client ||= Force.new instance_url: session['instance_url'],
+          oauth_token:   session['token'],
+          refresh_token: session['refresh_token'],
+          client_id:    ENV['SALESFORCE_KEY'],
+          client_secret: ENV['SALESFORCE_SECRET']
+    end
+
   end
 
 
@@ -62,13 +70,18 @@ class MyApp < Sinatra::Base
 
     erb :index
   end
-  
+
   get '/' do
     list = %w( clientt.query("select ownerid from event where startdatetime >= 2015-06-26T07:30:00.000Z and enddatetime <= 2015-06-26T16:30:00.000Z and showas = 'busy' "))
 
     erb :index
   end
 
+  for i in list do
+    puts i
+  end
+
+  puts clienttt.query("select Firstname from user where id ="+i+")
 
   get '/authenticate' do
     redirect "/auth/salesforce"
