@@ -79,7 +79,7 @@ class MyApp < Sinatra::Base
 
 
   list.each do |name|
-    @accounts2 = clienttt.query("select id from user where id = '#{name}' ")
+    clienttt.query("select id from user where id = '#{name}' ")
   end
 
 
