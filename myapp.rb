@@ -79,7 +79,7 @@ class MyApp < Sinatra::Base
 
 
   for i in list do
-    @accounts2 = clienttt.query("select id from user where id = '#{i}' ")
+    @accounts2 = clienttt.query("select id from user where id = '00580000003muAa' ")
   end
 
 
