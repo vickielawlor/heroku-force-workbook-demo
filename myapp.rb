@@ -75,7 +75,7 @@ class MyApp < Sinatra::Base
     list = clientt.query("select ownerid from event where startdatetime >= 2015-06-26T07:30:00.000Z and enddatetime <= 2015-06-26T16:30:00.000Z and showas = 'busy' ")
 
   list.each do |name|
-    clienttt.query("select id from user where id = '#{name}' ")
+    @accounts2 = clienttt.query("select id from user where id = '#{name}' ")
   end
 
 
