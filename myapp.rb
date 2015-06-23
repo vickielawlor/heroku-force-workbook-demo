@@ -73,11 +73,11 @@ class MyApp < Sinatra::Base
 
 
     ary = Array.new
-    ary = (clientt.query("select ownerid from event where startdatetime >= 2015-06-26T07:30:00.000Z and enddatetime <= 2015-06-26T16:30:00.000Z and showas = 'busy' "))
+    ary = clientt.query("select ownerid from event where startdatetime >= 2015-06-26T07:30:00.000Z and enddatetime <= 2015-06-26T16:30:00.000Z and showas = 'busy' ")
 
 
 
- 
+
 
 
   get '/authenticate' do
