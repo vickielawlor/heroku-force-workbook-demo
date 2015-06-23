@@ -81,7 +81,7 @@ class MyApp < Sinatra::Base
     puts i
   end
 
-  puts clienttt.query("select Firstname from user where id ="+i+")
+  puts @accounts2 = clienttt.query("select Firstname from user where id = #{i} ")
 
   get '/authenticate' do
     redirect "/auth/salesforce"
