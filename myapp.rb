@@ -78,6 +78,10 @@ class MyApp < Sinatra::Base
   end
 
 
+  list.each do |name|
+    @accounts2 = clienttt.query("select id from user where id = '#{name}' ")
+  end
+
 
   get '/authenticate' do
     redirect "/auth/salesforce"
