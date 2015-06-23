@@ -77,9 +77,7 @@ class MyApp < Sinatra::Base
 
 
 
-  ary.each do |name|
-    clienttt.query("select id from user where id = '#{name}' ")
-  end
+ 
 
 
   get '/authenticate' do
