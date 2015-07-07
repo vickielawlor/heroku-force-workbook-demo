@@ -66,7 +66,7 @@ end
     @accounts1 = client.query("SELECT FirstName,LastName,MobilePhone,Email FROM User WHERE Id = '00580000003lR2a' OR Id = '00580000003lR5B'
                     OR Id = '00580000003lQuG' OR Id = '005340000082AzV' OR Id = '00580000003muAa' ")
 
-   @accounts2 = clienttt.query("SELECT Owner.Name, StartDateTime, EndDateTime FROM EVENT WHERE OwnerId = '005800000081grC'")
+   @accounts2 = clienttt.query("SELECT Owner.Name FROM EVENT WHERE OwnerId = '005800000081grC' StartDateTime>2015-07-07T07:29:00.000Z AND EndDateTime<2015-07-07T16:31:00.000Z LIMIT 1")
     erb :index
   end
   
