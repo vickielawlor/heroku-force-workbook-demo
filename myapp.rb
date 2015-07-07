@@ -72,27 +72,7 @@ class MyApp < Sinatra::Base
   end
 
 
-    list = clientt.query("select ownerid from event where startdatetime >= 2015-06-26T07:30:00.000Z and enddatetime <= 2015-06-26T16:30:00.000Z and showas = 'busy' ")
-
-  list.each do |name|
-    @accounts2 = clienttt.query("select id from user where id = '#{name}' ")
-  end
-
-
-
-
-  get '/authenticate' do
-    redirect "/auth/salesforce"
-  end
-
-  get '/auth/salesforce/callback' do
-    logger.info "#{env["omniauth.auth"]["extra"]["display_name"]} just authenticated"
-    credentials = env["omniauth.auth"]["credentials"]
-    session['token'] = credentials["token"]
-    session['refresh_token'] = credentials["refresh_token"]
-    session['instance_url'] = credentials["instance_url"]
-    redirect '/'
-  end
+   
 
   get '/auth/failure' do
     params[:message]
