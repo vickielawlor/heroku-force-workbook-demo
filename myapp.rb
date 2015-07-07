@@ -66,18 +66,11 @@ end
     @accounts1 = client.query("SELECT FirstName,LastName,MobilePhone,Email FROM User WHERE Id = '00580000003lR2a' OR Id = '00580000003lR5B'
                     OR Id = '00580000003lQuG' OR Id = '005340000082AzV' OR Id = '00580000003muAa' ")
 
-   
+   @accounts2 = clienttt.query("SELECT StartDateTime, EndDateTime FROM EVENT WHERE OwnerId = '005800000081grC'")
     erb :index
   end
   
-  get '/' do
-    logger.info "Visited home page"
-
-    @accounts2 = clienttt.query("SELECT StartDateTime, EndDateTime FROM EVENT WHERE OwnerId = '005800000081grC'")
-
-   
-    erb :index
-  end
+  
 
   get '/authenticate' do
     redirect "/auth/salesforce"
