@@ -70,7 +70,19 @@ class MyApp < Sinatra::Base
 
     erb :index
   end
+ 
+  get '/authenticate' do
+    redirect "/auth/salesforce"
+  end
 
+  get '/auth/salesforce/callback' do
+    logger.info "#{env["omniauth.auth"]["extra"]["display_name"]} just authenticated"
+    credentials = env["omniauth.auth"]["credentials"]
+    session['token'] = credentials["token"]
+    session['refresh_token'] = credentials["refresh_token"]
+    session['instance_url'] = credentials["instance_url"]
+    redirect '/'
+  end
 
    
 
