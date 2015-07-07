@@ -47,7 +47,7 @@ class MyApp < Sinatra::Base
           client_secret: ENV['SALESFORCE_SECRET']
     end
 
-  end
+ 
 
 
   date = Time.now
