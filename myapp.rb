@@ -66,7 +66,7 @@ class MyApp < Sinatra::Base
     @accounts1 = client.query("SELECT FirstName,LastName,MobilePhone,Email FROM User WHERE Id = '00580000003lR2a' OR Id = '00580000003lR5B'
                     OR Id = '00580000003lQuG' OR Id = '005340000082AzV' OR Id = '00580000003muAa' ")
 
-
+    @accounts2 = clientt.query("SELECT Owner.Title, Owner.Name, event.showas, StartDateTime,EndDateTime FROM Event where StartDateTime>2015-07-06T01:29:00.000Z and EndDateTime<2015-07-06T20:31:00.000Z")
 
     erb :index
   end
