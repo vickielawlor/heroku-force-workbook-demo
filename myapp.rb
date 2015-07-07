@@ -46,7 +46,7 @@ class MyApp < Sinatra::Base
           client_id:    ENV['SALESFORCE_KEY'],
           client_secret: ENV['SALESFORCE_SECRET']
     end
-
+end
  
 
 
@@ -69,14 +69,7 @@ class MyApp < Sinatra::Base
    
     erb :index
   end
-  
-  get '/' do
-        logger.info "Visited home page"
-     @accounts2 = clientt.query("SELECT StartDateTime,EndDateTime FROM Event where OwnerId= '005800000081grC'")
 
-    erb :index
-  end
- 
   get '/authenticate' do
     redirect "/auth/salesforce"
   end
