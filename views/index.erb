@@ -12,13 +12,13 @@
   <% end %>
 </table>
 <table border="1" style="width:50%">
-  <caption>Manager Information</caption>
-  <tr><th>First Name</th><th>Last Name</th><th>Last Name</th></tr>
+  <caption>EMEA</caption>
+  <tr><th>Name</th><th>Start Time</th></tr>
   <% @accounts2.each do |account| %>
       <tr>
         <td><%= account.Owner.Name %></td>
         <td><%= account.StartDateTime %></td>
-        <td><%= account.EndDateTime %></td>
+
 
       </tr>
   <% end %>
