@@ -72,7 +72,7 @@ class MyApp < Sinatra::Base
   
   get '/' do
         logger.info "Visited home page"
-     @accounts2 = clientt.query("SELECT showas, StartDateTime,EndDateTime FROM Event where OwnerId= '005800000081grC'")
+     @accounts2 = clientt.query("SELECT StartDateTime,EndDateTime FROM Event where OwnerId= '005800000081grC'")
 
     erb :index
   end
