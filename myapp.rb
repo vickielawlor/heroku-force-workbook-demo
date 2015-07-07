@@ -69,6 +69,15 @@ end
    
     erb :index
   end
+  
+  get '/' do
+    logger.info "Visited home page"
+
+    @accounts2 = clienttt.query("SELECT StartDateTime, EndDateTime FROM EVENT WHERE OwnerId = '005800000081grC'")
+
+   
+    erb :index
+  end
 
   get '/authenticate' do
     redirect "/auth/salesforce"
