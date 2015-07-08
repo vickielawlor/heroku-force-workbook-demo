@@ -38,8 +38,6 @@ class MyApp < Sinatra::Base
           client_secret: ENV['SALESFORCE_SECRET']
     end
 end
- 
-
 
   date = Time.now
 
@@ -51,16 +49,13 @@ end
   dyy = dy.to_s.rjust(2,'0')
 
   d = "#{yr}-#{mntt}-#{dyy}"
+  
   get '/' do
     logger.info "Visited home page"
 
     @accounts1 = client.query("SELECT FirstName,LastName,MobilePhone,Email FROM User WHERE Id = '00580000003lR2a' OR Id = '00580000003lR5B'
                     OR Id = '00580000003lQuG' OR Id = '005340000082AzV' OR Id = '00580000003muAa' ")
-
-   @accounts2 = clienttt.query("SELECT Owner.Name FROM EVENT WHERE StartDateTime>2015-07-07T07:29:00.000Z AND EndDateTime<2015-07-07T17:31:00.000Z and (Owner.title ='cloud services engineer' or owner.title = 'cloud service engineer' or owner.title = 'Triage Support Engineer')")
   end
-  
-  
 
   get '/authenticate' do
     redirect "/auth/salesforce"
