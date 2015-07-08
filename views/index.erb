@@ -1,5 +1,5 @@
 <link rel="stylesheet" type="text/css" href="styles.css"/>
-<div>
+
 <table border="1" style="width:50%">
   <caption>Manager Information</caption>
   <tr><th>First Name</th><th>Last Name</th><th>Phone</th><th>Email</th></tr>
@@ -13,10 +13,9 @@
       </tr>
   <% end %>
 </table>
-</div>
-<div style = "width: 100% ">
-<div id = "two" style = float: left">
-<table border="1" style="width:20%">
+
+
+<table class = "one" border="1" style="width:20%">
   <caption>EMEA</caption>
   <tr><th>Avaiable for tasks</th></tr>
   <% @accounts2.each do |account| %>
@@ -25,9 +24,8 @@
       </tr>
   <% end %>
 </table>
-</div>
-<div id = "three" style =float:right">
-<table border="1" style="width:20%">
+
+<table class = "two" border="1" style="width:20%">
   <caption>EMEA</caption>
   <tr><th>Avaiable for tasks</th></tr>
   <% @accounts3.each do |account| %>
@@ -36,5 +34,3 @@
       </tr>
   <% end %>
 </table>
-</div>
-</div>
