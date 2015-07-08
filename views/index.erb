@@ -20,3 +20,12 @@
       </tr>
   <% end %>
 </table>
+<table border="1" style="width:20%">
+  <caption>EMEA</caption>
+  <tr><th>Avaiable for tasks</th></tr>
+  <% @accounts3.each do |account| %>
+      <tr>
+        <td><%= account.Owner.Name %></td>
+      </tr>
+  <% end %>
+</table>
