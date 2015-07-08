@@ -1,5 +1,9 @@
-#one,
-#two
-#three{
-  min-height: 250px;
+table.one {
+    float:left;
+    width:45%;
 }
+
+table.two   {
+    width:45%;
+    float:right;
+}​
