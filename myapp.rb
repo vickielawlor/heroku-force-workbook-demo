@@ -30,15 +30,6 @@ class MyApp < Sinatra::Base
                             client_id:    ENV['SALESFORCE_KEY'],
                             client_secret: ENV['SALESFORCE_SECRET']
     end
-
-    def clientt
-      @client ||= Force.new instance_url: session['instance_url'],
-          oauth_token:   session['token'],
-          refresh_token: session['refresh_token'],
-          client_id:    ENV['SALESFORCE_KEY'],
-          client_secret: ENV['SALESFORCE_SECRET']
-    end
-
     def clienttt
       @client ||= Force.new instance_url: session['instance_url'],
           oauth_token:   session['token'],
@@ -67,7 +58,6 @@ end
                     OR Id = '00580000003lQuG' OR Id = '005340000082AzV' OR Id = '00580000003muAa' ")
 
    @accounts2 = clienttt.query("SELECT Owner.Name FROM EVENT WHERE StartDateTime>2015-07-07T07:29:00.000Z AND EndDateTime<2015-07-07T17:31:00.000Z and (Owner.title ='cloud services engineer' or owner.title = 'cloud service engineer' or owner.title = 'Triage Support Engineer')")
-   @accounts3 = clientt.query("SELECT Owner.Name FROM EVENT WHERE StartDateTime>2015-07-07T07:29:00.000Z AND EndDateTime<2015-07-07T17:31:00.000Z")
   end
   
   
