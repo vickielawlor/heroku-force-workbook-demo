@@ -30,6 +30,15 @@ class MyApp < Sinatra::Base
                             client_id:    ENV['SALESFORCE_KEY'],
                             client_secret: ENV['SALESFORCE_SECRET']
     end
+
+    def clientt
+      @client ||= Force.new instance_url: session['instance_url'],
+          oauth_token:   session['token'],
+          refresh_token: session['refresh_token'],
+          client_id:    ENV['SALESFORCE_KEY'],
+          client_secret: ENV['SALESFORCE_SECRET']
+    end
+
     def clienttt
       @client ||= Force.new instance_url: session['instance_url'],
           oauth_token:   session['token'],
@@ -37,7 +46,9 @@ class MyApp < Sinatra::Base
           client_id:    ENV['SALESFORCE_KEY'],
           client_secret: ENV['SALESFORCE_SECRET']
     end
-end
+
+  end
+
 
   date = Time.now
 
@@ -49,26 +60,17 @@ end
   dyy = dy.to_s.rjust(2,'0')
 
   d = "#{yr}-#{mntt}-#{dyy}"
-  
   get '/' do
     logger.info "Visited home page"
 
     @accounts1 = client.query("SELECT FirstName,LastName,MobilePhone,Email FROM User WHERE Id = '00580000003lR2a' OR Id = '00580000003lR5B'
                     OR Id = '00580000003lQuG' OR Id = '005340000082AzV' OR Id = '00580000003muAa' ")
+
+
+
+    erb :index
   end
 
-  get '/authenticate' do
-    redirect "/auth/salesforce"
-  end
-
-  get '/auth/salesforce/callback' do
-    logger.info "#{env["omniauth.auth"]["extra"]["display_name"]} just authenticated"
-    credentials = env["omniauth.auth"]["credentials"]
-    session['token'] = credentials["token"]
-    session['refresh_token'] = credentials["refresh_token"]
-    session['instance_url'] = credentials["instance_url"]
-    redirect '/'
-  end
 
    
 
