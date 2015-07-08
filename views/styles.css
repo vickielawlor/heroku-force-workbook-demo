@@ -1,9 +1,5 @@
-table.one {
+  table {
     float:left;
-    width:45%;
-}
-
-table.two   {
-    width:45%;
-    float:right;
-}​
+    background:yellow;
+    margin-left:10px;
+  }
