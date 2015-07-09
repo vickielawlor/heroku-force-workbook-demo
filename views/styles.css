@@ -1,10 +1,6 @@
-  table.one {
+  table {
     float:left;
     background:yellow;
     margin-left:10px;
   }
-  table.two {
-    float:right;
-    background:yellow;
-    margin-left:10px;
-  }
+
